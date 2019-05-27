@@ -1,17 +1,17 @@
-#pGAN and cGAN
+# pGAN and cGAN
 
 These techniques (pGAN and cGAN) are described in the [following](https://ieeexplore.ieee.org/abstract/document/8653423) paper:
 
-Dar SUH, Yurt M, Karacan L, Erdem A, Erdem E, Çukur T. Image Synthesis in Multi-Contrast MRI with Conditional Generative Adversarial Networks. IEEE Transaction on Medical Imaging. 2019.
+Dar SUH, Yurt M, Karacan L, Erdem A, Erdem E, Ã‡ukur T. Image Synthesis in Multi-Contrast MRI with Conditional Generative Adversarial Networks. IEEE Transaction on Medical Imaging. 2019.
 
 
-#Demo
+# Demo
 
 The following commands train and test pGAN and cGAN models for T1 to T2 synthesis on images from the IXI dataset (registered dataset of training and testing subjects can be downloaded from [here](https://drive.google.com/open?id=1Vt-PVs7fHIX0m-hyZEx-Npabt78T89oE)). To run the code on other datasets, please create a file named 'data.mat' for training and testing samples and place them in their corresponding directories (datasets/yourdata/train, test). 'data.mat' should contain a variable named data_x for the source contrast and data_y for the target contrast. If you are creating the 'data.mat' file via Matlab please make sure that dimensions (1, 2, 3, 4) correspond to (neighbouring slices, number of samples, x-size, y-size). If you are saving the file via python then transpose the dimensions. Also, make sure that voxel intensity of each subject is normalized between 0-1.
 
-##pGAN
+## pGAN
 
-###Training
+### Training
 python pGAN.py --dataroot datasets/IXI --name pGAN_run --which_direction BtoA --lambda_A 100 --batchSize 1 --output_nc 1 --input_nc 3 --gpu_ids 0 --niter 50 --niter_decay 50 --save_epoch_freq 25 --lambda_vgg 100 --checkpoints_dir checkpoints/ --training
 name - name of the experiment
 which_direction - direction of synthesis. If it is set to 'AtoB' synthesis would be from data_x to data_y, and vice versa.
@@ -21,18 +21,18 @@ niter, n_iter_decay - number of epochs with normal learning rate and number of e
 save_epoch_freq -frequency of saving models.
 lambda_vgg - weighting of the pixel-wise loss function
 
-###Testing
+### Testing
 python pGAN.py --dataroot datasets/IXI --name pGAN_run --which_direction BtoA --phase test --output_nc 1 --input_nc 3 --how_many 1200 --results_dir results/ --checkpoints_dir checkpoints/
 
-##cGAN
+## cGAN
 
-###Training
+### Training
 python cGAN.py --dataroot datasets/IXI --name cGAN_run --model cGAN --output_nc 1 --input_nc 1 --gpu_ids 0 --niter 50 --niter_decay 50 --save_epoch_freq 25 --lambda_A 100 --lambda_B 100 --checkpoints_dir checkpoints --dataset_mode unaligned_mat --training
 lambda_A, lambda_B - weightings of the cycle loss functions for both directions
 dataset_mode - if set to unaligned the indices of the source and target contrasts are shuffled (for unpaired training)
-###Testing
+### Testing
 python cGAN.py --dataroot datasets/IXI --name cGAN_run --phase test --output_nc 1 --input_nc 1 --how_many 1200 --results_dir results/ --checkpoints_dir checkpoints
-##Prerequisites
+## Prerequisites
 Linux
 Python 2.7
 CPU or NVIDIA GPU + CUDA CuDNN
@@ -49,7 +49,7 @@ You are encouraged to modify/distribute this code. However, please acknowledge t
   year={2019},
   publisher={IEEE}
 }
-
+```
 For any questions, comments and contributions, please contact Salman Dar (salman[at]ee.bilkent.edu.tr)
 
 (c) ICON Lab 2019
