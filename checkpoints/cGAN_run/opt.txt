@@ -1,0 +1,33 @@
+------------ Options -------------
+aspect_ratio: 1.0
+batchSize: 1
+checkpoints_dir: checkpoints
+dataroot: datasets/IXI
+dataset_mode: aligned_mat
+display_id: 1
+display_port: 8097
+display_server: http://localhost
+display_winsize: 256
+gpu_ids: [0]
+how_many: 1200
+init_type: normal
+input_nc: 1
+isTrain: False
+max_dataset_size: inf
+model: cGAN
+nThreads: 2
+n_layers_D: 3
+name: cGAN_run
+ndf: 64
+ngf: 64
+no_dropout: True
+norm: instance
+ntest: inf
+output_nc: 1
+phase: test
+results_dir: results/
+serial_batches: True
+training: False
+which_direction: AtoB
+which_epoch: latest
+-------------- End ----------------
