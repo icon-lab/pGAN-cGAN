@@ -7,7 +7,10 @@ Dar SUH, Yurt M, Karacan L, Erdem A, Erdem E, Çukur T. Image Synthesis in Multi
 
 # Demo
 
-The following commands train and test pGAN and cGAN models for T1 to T2 synthesis on images from the IXI dataset (registered dataset of training and testing subjects can be downloaded from [here](https://drive.google.com/open?id=1Vt-PVs7fHIX0m-hyZEx-Npabt78T89oE)). To run the code on other datasets, please create a file named 'data.mat' for training and testing samples and place them in their corresponding directories (datasets/yourdata/train, test). 'data.mat' should contain a variable named data_x for the source contrast and data_y for the target contrast. If you are creating the 'data.mat' file via Matlab please make sure that dimensions (1, 2, 3, 4) correspond to (neighbouring slices, number of samples, x-size, y-size). If you are saving the file via python then transpose the dimensions. Also, make sure that voxel intensity of each subject is normalized between 0-1.
+The following commands train and test pGAN and cGAN models for T1 to T2 synthesis on images from the IXI dataset (registered dataset of training and testing subjects can be downloaded from [here](https://drive.google.com/drive/u/1/folders/1En_S9c081T2hV-joaFJv3xlMX2Eqzl5V). Copy the "datasets" folder in your current directory.  <br />
+Pre-trained pGAN and cGAN models are also present in the checkpoints directory. 
+<br />
+To run the code on other datasets, please create a file named 'data.mat' for training, testing and validation samples and place them in their corresponding directories (datasets/yourdata/train, test, val). 'data.mat' should contain a variable named data_x for the source contrast and data_y for the target contrast. If you are creating the 'data.mat' file via Matlab please make sure that dimensions (1, 2, 3, 4) correspond to (neighbouring slices, number of samples, x-size, y-size). If you are saving the file via python then transpose the dimensions. Also, make sure that voxel intensity of each subject is normalized between 0-1.
 
 ## pGAN
 
