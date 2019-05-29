@@ -14,6 +14,7 @@ The following commands train and test pGAN and cGAN models for T1 to T2 synthesi
 ### Training
 python pGAN.py --dataroot datasets/IXI --name pGAN_run --which_direction BtoA --lambda_A 100 --batchSize 1 --output_nc 1 --input_nc 3 --gpu_ids 0 --niter 50 --niter_decay 50 --save_epoch_freq 25 --lambda_vgg 100 --checkpoints_dir checkpoints/ --training
  <br />
+ <br />
 name - name of the experiment  <br />
 which_direction - direction of synthesis. If it is set to 'AtoB' synthesis would be from data_x to data_y, and vice versa <br />
 lambda_A - weighting of the pixel-wise loss function  <br />
@@ -28,7 +29,8 @@ python pGAN.py --dataroot datasets/IXI --name pGAN_run --which_direction BtoA --
 ## cGAN
 
 ### Training
-python cGAN.py --dataroot datasets/IXI --name cGAN_run --model cGAN --output_nc 1 --input_nc 1 --gpu_ids 0 --niter 50 --niter_decay 50 --save_epoch_freq 25 --lambda_A 100 --lambda_B 100 --checkpoints_dir checkpoints --dataset_mode unaligned_mat --training  <br />
+python cGAN.py --dataroot datasets/IXI --name cGAN_run --model cGAN --output_nc 1 --input_nc 1 --gpu_ids 0 --niter 50 --niter_decay 50 --save_epoch_freq 25 --lambda_A 100 --lambda_B 100 --checkpoints_dir checkpoints --dataset_mode unaligned_mat --training  <br /> 
+ <br />
 lambda_A, lambda_B - weightings of the cycle loss functions for both directions
 dataset_mode - if set to unaligned the indices of the source and target contrasts are shuffled (for unpaired training)
 ### Testing
