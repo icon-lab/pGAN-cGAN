@@ -56,7 +56,7 @@ You are encouraged to modify/distribute this code. However, please acknowledge t
   publisher={IEEE}
 }
 ```
-For any questions, comments and contributions, please contact Salman Dar (salman[at]ee.bilkent.edu.tr) `<addr>`
+For any questions, comments and contributions, please contact Salman Dar (salman[at]ee.bilkent.edu.tr) <br />
 
 (c) ICON Lab 2019
 
